@@ -15,35 +15,48 @@
         from
             SCHEDULE_INFO
         where
+        	use_yn='Y' and 
  			DATE(sch_strdate)<=#{date} and DATE(sch_eddate)>=#{date} 
 		]]>
     </select>
     
     <insert id="InsertScheduleOne" parameterType="com.schd.Service.ScheduleInfoVO">
     	insert into 
-    		schedule_info (sch_name,sch_strdate, sch_eddate, sch_Yn) 
+    		schedule_info (sch_name, sch_strdate, sch_eddate, sch_Yn, sch_comment, use_yn) 
     	values 
-    		(#{SCH_NAME},#{SCH_STRDATE},#{SCH_EDDATE},"N")
+    		(#{SCH_NAME},#{SCH_STRDATE},#{SCH_EDDATE},"N",#{SCH_COMMENT},"Y")
     	
     </insert>
     
-    <update id="UpdateScheduleOne">
+    <update id="UpdateScheduleOne" parameterType="com.schd.Service.ScheduleInfoVO">
     	update 
     		schedule_info 
     	set 
     		sch_name=#{SCH_NAME},
     		sch_strdate=#{SCH_STRDATE},
-    		sch_eddate=#{SCH_EDDATE} 
+    		sch_eddate=#{SCH_EDDATE} ,
+    		sch_comment=#{SCH_COMMENT},
+    		
    		where 
    			sch_seq=#{SCH_SEQ}
     	
     </update>
     
+        <update id="DeleteScheduleOne" parameterType="com.schd.Service.ScheduleInfoVO">
+    	update 
+    		schedule_info 
+    	set 
+    		use_yn='N'		
+   		where 
+   			sch_seq=#{SCH_SEQ}
+    	
+    </update>
+    <!-- 
     <delete id="DeleteScheduleOne">
     	delete from 
     		schedule_info 
    		where 
-   			sch_seq=#{SCH_SEQ} <!-- delete 문 말고 use_yn 추가해서 Yn값으로 변경하기 -->
+   			sch_seq=#{SCH_SEQ} // delete 문 말고 use_yn 추가해서 Yn값으로 변경하기
     </delete>
-    
+     -->
 </mapper>

@@ -14,7 +14,10 @@ public class ScheduleInfoVO {
 	Date SCH_EDDATE;
 	String SCH_COMMENT;
 	String SCH_YN;
+	String USE_YN;
+	String USER_ID;
 	
+
 	public int getSCH_SEQ() {
 		return SCH_SEQ;
 	}
@@ -51,6 +54,17 @@ public class ScheduleInfoVO {
 	public void setSCH_YN(String sCH_YN) {
 		SCH_YN = sCH_YN;
 	}
-	
+	public String getUSE_YN() {
+		return USE_YN;
+	}
+	public void setUSE_YN(String uSE_YN) {
+		USE_YN = uSE_YN;
+	}
+	public String getUSER_ID() {
+		return USER_ID;
+	}
+	public void setUSER_ID(String uSER_ID) {
+		USER_ID = uSER_ID;
+	}
 	
 }

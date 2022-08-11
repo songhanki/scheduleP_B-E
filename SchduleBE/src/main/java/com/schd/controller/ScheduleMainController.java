@@ -30,7 +30,7 @@ public class ScheduleMainController {
 	@Autowired
 	private ScheduleInfoService scheduleInfoService; 
 	
-	@GetMapping("/test")
+	@GetMapping("/test") 
 	public Map<String,String> test() {
 		Map<String,String> map = new HashMap<>();
 		map.put("test", "1234");
@@ -63,7 +63,7 @@ public class ScheduleMainController {
 	
 	//일정 입력
 	@PostMapping("/InsertScheduleOne")
-	public String InsertScheduleOne( String sch_name, String sch_strdate, String sch_eddate) throws ParseException {
+	public String InsertScheduleOne( String sch_name, String sch_strdate, String sch_eddate, String sch_comment) throws ParseException {
 		//
 		// 포맷터        
 		SimpleDateFormat  formatter =  new SimpleDateFormat("yyyy-MM-dd");         
@@ -77,6 +77,8 @@ public class ScheduleMainController {
 		scheduleInfoVO.setSCH_NAME(sch_name);
 		scheduleInfoVO.setSCH_STRDATE(strdate);
 		scheduleInfoVO.setSCH_EDDATE(eddate);
+		scheduleInfoVO.setSCH_COMMENT(sch_comment);
+		
 		
 		int result = scheduleInfoService.InsertScheduleOne(scheduleInfoVO);
 		System.out.println(result);
@@ -88,7 +90,7 @@ public class ScheduleMainController {
 	
 	//일정 수정
 	@PutMapping("/UpdateScheduleOne")
-	public String UpdateScheduleOne(String sch_name, String sch_strdate, String sch_eddate, int sch_seq) throws ParseException {
+	public String UpdateScheduleOne(String sch_name, String sch_strdate, String sch_eddate, int sch_seq, String sch_comment) throws ParseException {
 		// 포맷터        
 		SimpleDateFormat  formatter =  new SimpleDateFormat("yyyy-MM-dd");         
 		// 문자열 -> Date        
@@ -100,6 +102,7 @@ public class ScheduleMainController {
 		scheduleInfoVO.setSCH_NAME(sch_name);
 		scheduleInfoVO.setSCH_STRDATE(strdate);
 		scheduleInfoVO.setSCH_EDDATE(eddate);
+		scheduleInfoVO.setSCH_COMMENT(sch_comment);
 		
 		int result = scheduleInfoService.UpdateScheduleOne(scheduleInfoVO);
 		System.out.println(result);
