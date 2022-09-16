@@ -24,7 +24,8 @@ import com.schd.Service.ScheduleInfoService;
 import com.schd.Service.ScheduleInfoVO;
 
 @RestController
-@CrossOrigin(origins="http://localhost:3000") // cors설정(react)
+//@CrossOrigin(origins="http://localhost:3000") // cors설정(react)
+@CrossOrigin(origins="*") // cors설정(전체허용)
 public class ScheduleMainController {
 	
 	@Autowired
@@ -63,6 +64,7 @@ public class ScheduleMainController {
 	
 	//일정 입력
 	@PostMapping("/InsertScheduleOne")
+	//public String InsertScheduleOne(ScheduleInfoVO scheduleInfoVO) throws ParseException {
 	public String InsertScheduleOne( String sch_name, String sch_strdate, String sch_eddate, String sch_comment) throws ParseException {
 		//
 		// 포맷터        
