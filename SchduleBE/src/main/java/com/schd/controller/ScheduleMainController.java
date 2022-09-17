@@ -29,7 +29,14 @@ import com.schd.Service.ScheduleInfoVO;
 public class ScheduleMainController {
 	
 	@Autowired
-	private ScheduleInfoService scheduleInfoService; 
+	private ScheduleInfoService scheduleInfoService;
+	
+	@GetMapping("/") 
+	public Map<String,String> main() {
+		Map<String,String> map = new HashMap<>();
+		map.put("hello", "1234");
+		return map;
+	}
 	
 	@GetMapping("/test") 
 	public Map<String,String> test() {
@@ -62,11 +69,20 @@ public class ScheduleMainController {
 		return day_list;
 	}
 	
+	//스케쥴 넘버링값 검색
+	@GetMapping("/SelectScheduleOne")
+	public List<ScheduleInfoVO> SelectScheduleOne(String seq){
+		List<ScheduleInfoVO> sch_list = scheduleInfoService.SelectScheduleOne(seq);
+		return sch_list;
+	}
+	
+	
 	//일정 입력
 	@PostMapping("/InsertScheduleOne")
 	//public String InsertScheduleOne(ScheduleInfoVO scheduleInfoVO) throws ParseException {
 	public String InsertScheduleOne( String sch_name, String sch_strdate, String sch_eddate, String sch_comment) throws ParseException {
 		//
+		System.out.println("sch_name : "+sch_name);
 		// 포맷터        
 		SimpleDateFormat  formatter =  new SimpleDateFormat("yyyy-MM-dd");         
 		// 문자열 -> Date        

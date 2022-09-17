@@ -20,6 +20,10 @@ public class ScheduleInfoService {
 		return scheduleInfoMapper.SelectScheduleDayList(date);
 	}
 	
+	public List<ScheduleInfoVO> SelectScheduleOne(String seq){
+		return scheduleInfoMapper.SelectScheduleOne(seq);
+	}
+	
 	public int InsertScheduleOne(ScheduleInfoVO scheduleInfoVO) {
 		return scheduleInfoMapper.InsertScheduleOne(scheduleInfoVO);
 	}

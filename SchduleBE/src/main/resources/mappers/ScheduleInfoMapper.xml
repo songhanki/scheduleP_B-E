@@ -20,6 +20,15 @@
 		]]>
     </select>
     
+    <select id="SelectScheduleOne" resultType="com.schd.Service.ScheduleInfoVO" parameterType="String">
+     	select
+            *
+        from
+            SCHEDULE_INFO
+        where
+        	sch_seq = #{seq} 
+    </select>
+    
     <insert id="InsertScheduleOne" parameterType="com.schd.Service.ScheduleInfoVO">
     	insert into 
     		schedule_info (sch_name, sch_strdate, sch_eddate, sch_Yn, sch_comment, use_yn) 
