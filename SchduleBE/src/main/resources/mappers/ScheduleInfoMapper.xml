@@ -44,7 +44,7 @@
     		sch_name=#{SCH_NAME},
     		sch_strdate=#{SCH_STRDATE},
     		sch_eddate=#{SCH_EDDATE} ,
-    		sch_comment=#{SCH_COMMENT},
+    		sch_comment=#{SCH_COMMENT}
     		
    		where 
    			sch_seq=#{SCH_SEQ}
