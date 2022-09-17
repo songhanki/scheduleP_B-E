@@ -31,7 +31,7 @@
     
     <insert id="InsertScheduleOne" parameterType="com.schd.Service.ScheduleInfoVO">
     	insert into 
-    		schedule_info (sch_name, sch_strdate, sch_eddate, sch_Yn, sch_comment, use_yn) 
+    		SCHEDULE_INFO (sch_name, sch_strdate, sch_eddate, sch_Yn, sch_comment, use_yn) 
     	values 
     		(#{SCH_NAME},#{SCH_STRDATE},#{SCH_EDDATE},"N",#{SCH_COMMENT},"Y")
     	
@@ -39,7 +39,7 @@
     
     <update id="UpdateScheduleOne" parameterType="com.schd.Service.ScheduleInfoVO">
     	update 
-    		schedule_info 
+    		SCHEDULE_INFO 
     	set 
     		sch_name=#{SCH_NAME},
     		sch_strdate=#{SCH_STRDATE},
@@ -53,7 +53,7 @@
     
         <update id="DeleteScheduleOne" parameterType="com.schd.Service.ScheduleInfoVO">
     	update 
-    		schedule_info 
+    		SCHEDULE_INFO 
     	set 
     		use_yn='N'		
    		where 
