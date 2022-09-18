@@ -6,7 +6,9 @@
             *
         from
             SCHEDULE_INFO
-    </select>
+        where 
+           	use_yn='Y'
+    </select> 
     
     <select id="SelectScheduleDayList" resultType="com.schd.Service.ScheduleInfoVO" parameterType="String">
        	<![CDATA[

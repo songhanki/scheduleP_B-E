@@ -114,6 +114,7 @@ public class ScheduleMainController {
 		// 문자열 -> Date        
 		Date strdate = formatter.parse(sch_strdate);
 		Date eddate = formatter.parse(sch_eddate);
+		System.out.println(strdate);
 		
 		ScheduleInfoVO scheduleInfoVO = new ScheduleInfoVO();
 		scheduleInfoVO.setSCH_SEQ(sch_seq);

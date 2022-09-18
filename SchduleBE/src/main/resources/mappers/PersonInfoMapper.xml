@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.schd.Mappers.PersonInfoMapper">
+
+    <select id="CheckPersonID" parameterType="String" resultType="Integer">
+
+        select
+            count(*)
+        from
+            PERSON_INFO
+        where 
+           	per_id=#{PER_ID}
+           	 
+    </select> 
+
+    <insert id="InsertPerson" parameterType="com.schd.Service.PersonInfoVO">
+    	insert into 
+    		PERSON_INFO (per_id, per_name, per_pass) 
+    	values 
+    		( #{PER_ID},#{PER_NAME},#{PER_PASS} )
+    	
+    </insert>
+    
+    <select id="ScheduleLogin"  parameterType="com.schd.Service.PersonInfoVO" resultType="Integer">
+        select
+            count(*)
+        from
+            PERSON_INFO
+        where 
+           	per_id=#{PER_ID}
+           	and per_pass = #{PER_PASS}
+    </select> 
+    
+</mapper>
