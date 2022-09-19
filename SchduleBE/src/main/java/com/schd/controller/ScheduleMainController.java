@@ -81,15 +81,11 @@ public class ScheduleMainController {
 	@PostMapping("/InsertScheduleOne")
 	//public String InsertScheduleOne(ScheduleInfoVO scheduleInfoVO) throws ParseException {
 	public String InsertScheduleOne( String sch_name, String sch_strdate, String sch_eddate, String sch_comment) throws ParseException {
-		//
-		System.out.println("sch_name : "+sch_name);
-		// 포맷터        
+
 		SimpleDateFormat  formatter =  new SimpleDateFormat("yyyy-MM-dd");         
 		// 문자열 -> Date        
 		Date strdate = formatter.parse(sch_strdate);
 		Date eddate = formatter.parse(sch_eddate);
-		
-		
 		
 		ScheduleInfoVO scheduleInfoVO = new ScheduleInfoVO();
 		scheduleInfoVO.setSCH_NAME(sch_name);
@@ -97,11 +93,10 @@ public class ScheduleMainController {
 		scheduleInfoVO.setSCH_EDDATE(eddate);
 		scheduleInfoVO.setSCH_COMMENT(sch_comment);
 		
-		
 		int result = scheduleInfoService.InsertScheduleOne(scheduleInfoVO);
 		System.out.println(result);
 		if(result == 1) { // 결과값이 1이면 성공, 그 외일때는 실패메세지 반환
-			
+			return "notok";
 		}
 		return "200ok";
 	}
@@ -126,7 +121,7 @@ public class ScheduleMainController {
 		int result = scheduleInfoService.UpdateScheduleOne(scheduleInfoVO);
 		System.out.println(result);
 		if(result == 1) { // 결과값이 1이면 성공, 그 외일때는 실패메세지 반환
-			
+			return "notok";
 		}
 		return "200ok";
 	}
@@ -134,16 +129,14 @@ public class ScheduleMainController {
 	//일정 삭제
 	@DeleteMapping("/DeleteScheduleOne")
 	public String DeleteScheduleOne(int sch_seq) {
-		//
 		ScheduleInfoVO scheduleInfoVO = new ScheduleInfoVO();
 		scheduleInfoVO.setSCH_SEQ(sch_seq);
 		
 		int result = scheduleInfoService.DeleteScheduleOne(scheduleInfoVO);
 		System.out.println(result);
 		if(result == 1) { // 결과값이 1이면 성공, 그 외일때는 실패메세지 반환
-			
+			return "notok";
 		}
-		
 		return "200ok";
 	}
 	
